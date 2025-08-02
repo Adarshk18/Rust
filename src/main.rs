@@ -1,48 +1,43 @@
-use rand::{thread_rng, seq::SliceRandom};
-
-#[derive(Debug)] //list of attributes  ...trait is a collection of functions
-
-struct Deck { //strcut is used to define collection of fields
-    cards: Vec<String>,
+#[derive(Debug)]
+struct Account{
+    id: u32,
+    balance: i32,
+    holder: String,
 }
 
-impl Deck{
-    fn new() -> Self{
-        //list of 'suits'-'hearts','spades'
-    let suits= vec!["Hearts","Spades","Diamonds"];
-    let values = vec!["Ace","Two","Three"];
-
-    let mut cards = vec![];
-
-    for suit in suits{
-        for value in &values{
-            let card = format!("{} of {}",value,suit);
-            cards.push(card);
+impl Account{
+    fn new(id: u32, holder: String)->Self{
+        Account{
+            id,
+            holder,
+            balance: 0,
         }
     }
+}
 
+#[derive(Debug)]
+struct Bank{
+    accounts: Vec<Account>,
+}
 
-    //a variable is a bindings
-    Deck {cards}
-    
-    }
-
-    fn shuffle(&mut self){
-        let mut rng = thread_rng();
-        self.cards.shuffle(&mut rng);
-    }
-
-    fn deal(&mut self, num_cards: usize)->Vec<String>{
-        self.cards.split_off(
-            self.cards.len()-num_cards
-        )
+impl Bank{
+    fn new()->Self{
+        Bank {accounts: vec![]}
     }
 }
 
+fn print_account(account: Account){
+    println!("{:#?}", account);
+}
+
+
 fn main() {
-    
-let mut deck = Deck::new();
-let cards = deck.deal(3);
-    println!("Here's your hand: {:#?}",cards);
-    println!("Here's your deck: {:#?}",deck);
+    let bank = Bank::new();
+    let account = Account::new(
+        1,
+        String::from("Adarsh")
+    );
+
+   print_account(account);
+   print_account(account);
 }
