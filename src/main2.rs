@@ -1,12 +1,19 @@
+fn five() -> i32 {
+    45
+}
+
 fn main(){
-    let x  = 5;
 
-    let x = x + 1;
 
-    {
-        let x = x*2;
-        println!("The value of x in inner scope is: {x}");
-    }
+    //functions that returns something
+    let x = five();
+    println!("The value of x is: {x}");
+    
+    another_function(3, 'c');
 
-    println!("The value of x is : {x}");
+}
+
+fn another_function(x: i32, unit_label: char){
+    println!("The Value is: {x}{unit_label}");
+
 }
