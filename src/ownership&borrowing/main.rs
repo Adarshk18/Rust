@@ -21,12 +21,21 @@ fn main() {
     // let x= 4;
     // makes_copy(x);
 
-    let s1 = gives_ownership();
+    // let s1 = gives_ownership();
 
-    let s2 = String::from("hello");
-    let s3 = takes_and_gives_back(s2);
+    // let s2 = String::from("hello");
+    // let s3 = takes_and_gives_back(s2);
+
+    let s1 = String::from("hello");
+    let len = calculate_length(&s1);
+
+    println!("The length of string {s1} is {len}");
 
 
+}
+
+fn calculate_length(s: &String) -> usize{
+    s.len()
 }
 
 // fn takes_ownership(some_string: String){
@@ -37,13 +46,13 @@ fn main() {
 //     println!("{some_integer}")
 // }
 
-fn gives_ownership() -> String{
-    let some_string = String::from("yours");
-    some_string
-}
+// fn gives_ownership() -> String{
+//     let some_string = String::from("yours");
+//     some_string
+// }
 
 
-fn takes_and_gives_back(a_string: String) -> String{
-    a_string
-}
+// fn takes_and_gives_back(a_string: String) -> String{
+//     a_string
+// }
 
