@@ -26,16 +26,23 @@ fn main() {
     // let s2 = String::from("hello");
     // let s3 = takes_and_gives_back(s2);
 
-    let s1 = String::from("hello");
-    let len = calculate_length(&s1);
+    // let s1 = String::from("hello");
+    // let len = calculate_length(&s1);
 
-    println!("The length of string {s1} is {len}");
+    // println!("The length of string {s1} is {len}");
+
+    let mut s1 = String::from("hello");
+    change(&mut s1);
 
 
 }
 
-fn calculate_length(s: &String) -> usize{
-    s.len()
+// fn calculate_length(s: &String) -> usize{
+//     s.len()
+// }
+
+fn change(some_string: &mut String){
+    some_string.push_str(", world");
 }
 
 // fn takes_ownership(some_string: String){
