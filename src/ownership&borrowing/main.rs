@@ -31,10 +31,15 @@ fn main() {
 
     // println!("The length of string {s1} is {len}");
 
-    let mut s1 = String::from("hello");
-    change(&mut s1);
+    // let mut s1 = String::from("hello");
+    // change(&mut s1);
 
-    let reference_to_nothing = dangle();
+    // let reference_to_nothing = dangle();
+
+    let mut s = String::from("hello world");
+
+    let word = first_word(&s);
+    s.clear();
 
 
 }
@@ -43,15 +48,15 @@ fn main() {
 //     s.len()
 // }
 
-fn change(some_string: &mut String){
-    some_string.push_str(", world");
-}
+// fn change(some_string: &mut String){
+//     some_string.push_str(", world");
+// }
 
-fn dangle() -> String{
-    let s = String::from("hello");
+// fn dangle() -> String{
+//     let s = String::from("hello");
 
-    s //so return string directly instead of returning reference to it.
-}
+//     s //so return string directly instead of returning reference to it.
+// }
 
 // fn takes_ownership(some_string: String){
 //     println!("{some_string}");
@@ -70,4 +75,15 @@ fn dangle() -> String{
 // fn takes_and_gives_back(a_string: String) -> String{
 //     a_string
 // }
+
+fn first_word(s: &String) -> usize{
+    let bytes = s.as_bytes();
+
+    for(i, &item) in bytes.iter().enumerate(){
+        if item == b' '{
+            return i;
+        }
+    }
+    s.len()
+}
 
