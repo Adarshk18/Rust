@@ -47,10 +47,10 @@ fn change(some_string: &mut String){
     some_string.push_str(", world");
 }
 
-fn dangle() -> &String{
+fn dangle() -> String{
     let s = String::from("hello");
 
-    &s
+    s //so return string directly instead of returning reference to it.
 }
 
 // fn takes_ownership(some_string: String){
