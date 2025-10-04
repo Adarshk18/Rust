@@ -34,6 +34,8 @@ fn main() {
     let mut s1 = String::from("hello");
     change(&mut s1);
 
+    let reference_to_nothing = dangle();
+
 
 }
 
@@ -43,6 +45,12 @@ fn main() {
 
 fn change(some_string: &mut String){
     some_string.push_str(", world");
+}
+
+fn dangle() -> &String{
+    let s = String::from("hello");
+
+    &s
 }
 
 // fn takes_ownership(some_string: String){
