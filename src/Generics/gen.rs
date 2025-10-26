@@ -24,7 +24,7 @@ fn largestchar(a: char, b: char) -> char{
 }
 
 //now combining the above two functions using generics
-fn largest<T: std::cmp::PartialOrd>(a: t, b: T) -> T{
+fn largest<T: std::cmp::PartialOrd>(a: T, b: T) -> T{
     if a>b{
         a
     }else{
