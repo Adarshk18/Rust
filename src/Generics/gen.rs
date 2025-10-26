@@ -1,3 +1,5 @@
+//code reusability
+
 fn main(){
     let bigger = largest(1,2);
     let biggest = largest('a','b');
